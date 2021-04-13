@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Cast For Movie</title>
+</head>
+<body>
+    <h1>Add Cast For Movie</h1>
+    <a href="/movies">List Movies</a><br><br>
+    <form action="/movies/add-cast/<%= dataById.id %> " method="post">
+        Tittle : <h3>== <%= dataById.name %> ==</h3>
+        Actor : <br>
+        <select name="actor">
+            <option value="">---SELECT---</option>
+            <% for( let i = 0; i < allData.length; i++ ) { %>
+                <option value="<%= allData[i].id %> "><%= allData[i].joinName() %> </option>
+            <% } %>
+        </select><br><br>
+        Role : <br><input type="text" name="role"><br><br>
+        <button type="submit">Submit</button>
+    </form><br><br>
+    <hr>
+    <h1>List Cast</h1>
+    <table border="2">
+        <tr>
+            <th>Actor</th>
+            <th>Role</th>
+        </tr>
+        <% for( let i = 0; i < dataMovieCasts.length; i++ ) { %>
+            <tr>
+                <td><%= dataMovieCasts[i].Cast.joinName() %> </td>
+                <td><%= dataMovieCasts[i].role %> </td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>

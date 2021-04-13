@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See Movie</title>
+</head>
+<body>
+    <h1>See Movie</h1>
+    <a href="/casts">List Casts</a>
+    <h3>== <%= `${data.first_name} ${data.last_name}` %> ==</h3>
+    <table border="2">
+        <tr>
+            <th>Movies</th>
+            <th>Released Year</th>
+            <th>Age When Movie Released</th>
+            <th>Role</th>
+        </tr>
+        <% for( let i = 0; i < data.Movies.length; i++ ) { %>
+            <tr>
+                <td><%= data.Movies[i].name %> </td>
+                <td><%= data.Movies[i].released_year %> </td>
+                <td><%= data.age[i] %> </td>
+                <td><%= data.Movies[i].MovieCast.role %> </td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>

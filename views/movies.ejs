@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production House</title>
+</head>
+<body>
+    <h1>List Production House</h1>
+    <a href="/casts">Casts</a>
+    <a href="/production-houses">Production House</a><br><br>
+    <table border="2">
+        <tr>
+            <th>Name</th>
+            <th>Release on</th>
+            <th>Genre</th>
+            <th>Rating</th>
+            <th>Production by</th>
+            <th>ACTIONS</th>
+        </tr>
+
+        <% for(let i = 0; i < data.length; i++) { %> 
+            <tr>
+                <td><%= data[i].name %> </td>
+                <td><%= data[i].released_year %> </td>
+                <td><%= data[i].genre %> </td>
+                <td><%= data[i].rating %> </td>
+                <% if (data[i].ProductionHouseId === null) { %> 
+                    <td>Unknown</td>
+                <% } else { %> 
+                    <td> <%= data[i].ProductionHouse.name %> </td>
+                <% } %> 
+                <td>
+                    <button>
+                        <a href="movies/edit/<%= data[i].id %> ">Edit</a>
+                    </button>
+                    <button>
+                        
+                        <a href="movies/delete/<%= data[i].id %> ">Delete</a>
+                    </button>
+                    <button>
+                        <a href="movies/add-cast/<%= data[i].id %> ">Add Cast</a>
+                    </button>
+                </td>
+            </tr>
+        <% } %> 
+    </table><br>
+    <button>
+        <a href="movies/add">Tambah Data</a>
+    </button>
+    <hr>
+</body>
+</html>
